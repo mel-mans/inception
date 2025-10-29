@@ -19,7 +19,7 @@ services:
     build: ./mariadb/.
     restart: always
     ports:
-      - "3306:3306"
+      - "3306"
     env_file:
       - .env
     volumes:
@@ -35,7 +35,7 @@ services:
     build: ./wordpress/.
     restart: always
     ports:
-      - "9000:9000"
+      - "9000"
     env_file:
       - .env
     volumes:
