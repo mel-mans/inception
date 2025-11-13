@@ -1,8 +1,8 @@
 services:
   nginx:
-    image: nginx:imag
+    image: nginx:image
     container_name: nginx
-    build: ./nginx/.
+    build: ./srcs/requirements/nginx/.
     restart: always
     depends_on:
       - wordpress
@@ -14,11 +14,11 @@ services:
       - inception
 
   mariadb:
-    image: mariadb:imag
+    image: mariadb:image
     container_name: mariadb
-    build: ./mariadb/.
+    build: ./srcs/requirements/mariadb/.
     restart: always
-    ports:
+    expose:
       - "3306"
     env_file:
       - .env
@@ -30,11 +30,11 @@ services:
   wordpress:
     depends_on:
       - mariadb
-    image: wordpress:imag
+    image: wordpress:image
     container_name: wordpress
-    build: ./wordpress/.
+    build: ./srcs/requirements/wordpress/.
     restart: always
-    ports:
+    expose:
       - "9000"
     env_file:
       - .env
